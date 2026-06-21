@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>威廉希尔 · 知识库入口</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f2f4f6;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #1e293b;
+            line-height: 1.6;
+            padding: 2rem 1.5rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            max-width: 1120px;
+            margin: 0 auto;
+            width: 100%;
+            flex: 1;
+        }
+
+        /* hero 区 */
+        .hero {
+            margin-bottom: 2.5rem;
+        }
+
+        .hero h1 {
+            font-size: 2rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: #0f172a;
+            margin-bottom: 0.75rem;
+            border-left: 4px solid #2563eb;
+            padding-left: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.05rem;
+            color: #475569;
+            max-width: 720px;
+            padding-left: 1.5rem;
+        }
+
+        /* 卡片栅格 */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 1.5rem 1.25rem;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03), 0 1px 2px rgba(0, 0, 0, 0.02);
+            transition: box-shadow 0.15s ease;
+        }
+
+        .card:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04), 0 2px 4px rgba(0, 0, 0, 0.02);
+        }
+
+        .card h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-bottom: 0.6rem;
+            color: #0f172a;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .card h3::before {
+            content: '';
+            display: inline-block;
+            width: 6px;
+            height: 18px;
+            background: #94a3b8;
+            border-radius: 3px;
+            flex-shrink: 0;
+        }
+
+        .card p, .card li {
+            font-size: 0.92rem;
+            color: #334155;
+            margin-bottom: 0.35rem;
+        }
+
+        .card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .card ul li {
+            padding: 0.25rem 0;
+            border-bottom: 1px dashed #e9edf2;
+        }
+
+        .card ul li:last-child {
+            border-bottom: none;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #eef2f6;
+            color: #1e293b;
+            font-size: 0.75rem;
+            font-weight: 500;
+            padding: 0.15rem 0.6rem;
+            border-radius: 20px;
+            margin-right: 0.4rem;
+        }
+
+        /* 说明区 + 提示区 两列 */
+        .split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        @media (max-width: 680px) {
+            .split {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .info-block {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 1.5rem 1.25rem;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+        }
+
+        .info-block h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            color: #0f172a;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .info-block h4 span {
+            background: #2563eb;
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 0.1rem 0.6rem;
+            border-radius: 30px;
+            margin-left: 0.6rem;
+        }
+
+        .info-block p {
+            font-size: 0.92rem;
+            color: #334155;
+            margin-bottom: 0.6rem;
+        }
+
+        .info-block code {
+            background: #f1f5f9;
+            padding: 0.1rem 0.35rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+        }
+
+        .faq-mini {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 1.5rem 1.25rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+        }
+
+        .faq-mini h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #0f172a;
+        }
+
+        .faq-item {
+            margin-bottom: 0.9rem;
+        }
+
+        .faq-item strong {
+            font-weight: 600;
+            color: #0f172a;
+            display: block;
+            margin-bottom: 0.15rem;
+            font-size: 0.93rem;
+        }
+
+        .faq-item p {
+            font-size: 0.9rem;
+            color: #475569;
+            margin-left: 0.2rem;
+        }
+
+        .inline-link {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.1s;
+        }
+
+        .inline-link:hover {
+            border-bottom-color: #2563eb;
+        }
+
+        .footer-note {
+            text-align: center;
+            font-size: 0.8rem;
+            color: #94a3b8;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .footer-note span {
+            margin: 0 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- hero -->
+        <div class="hero">
+            <h1>威廉希尔 · 知识库入口</h1>
+            <p>汇集平台框架、内容说明与常见疑问，作为稳定信息索引页。以下卡片与分区提供结构化参考，方便快速定位相关概念与操作指引。</p>
+        </div>
+
+        <!-- 目录感卡片网格 -->
+        <div class="grid">
+            <div class="card">
+                <h3>平台概览</h3>
+                <ul>
+                    <li>威廉希尔覆盖体育赛事、数字娱乐等多种场景</li>
+                    <li>页面结构以功能模块划分，导航层级清晰</li>
+                    <li>适配桌面与移动端，响应式布局</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>内容模块</h3>
+                <ul>
+                    <li>实时数据面板与统计摘要</li>
+                    <li>用户中心及偏好设置</li>
+                    <li>帮助文档与常见问题聚合</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>访问指引</h3>
+                <p>主站地址指向 <a href="https://waps-williamhill.com" class="inline-link">威廉希尔</a>，建议使用主流浏览器以获得完整样式支持。网络环境可能影响加载，可尝试刷新或调整连接。</p>
+            </div>
+            <div class="card">
+                <h3>信息结构</h3>
+                <ul>
+                    <li>入口页面 · 目录化展示</li>
+                    <li>分区说明 · 卡片与列表混合</li>
+                    <li>FAQ 摘要 · 高频问题前置</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 说明区 + 提示区 并排 -->
+        <div class="split">
+            <div class="info-block">
+                <h4>说明区 <span>概述</span></h4>
+                <p>本页作为知识库索引，不直接承载业务操作。各卡片内容基于公开信息与常规功能归纳，具体界面以实际站点为准。</p>
+                <p>如需了解详细规则或账户管理，可参考对应模块内的指引文档。平台内容会随版本迭代更新，建议定期查阅最新说明。</p>
+                <p style="margin-top:0.8rem;"><span class="tag">版本</span> 知识库 v1.2 · 条目汇总</p>
+            </div>
+            <div class="info-block">
+                <h4>提示区 <span>注意</span></h4>
+                <p>• 确认网址为 <code>https://waps-williamhill.com</code>，注意拼写与协议前缀。</p>
+                <p>• 部分功能可能需要登录或完成身份验证，请保管好账户凭证。</p>
+                <p>• 若页面加载异常，可尝试清理浏览器缓存或更换网络环境。</p>
+                <p>• 官方不会通过非正规渠道索取密码，谨防仿冒站点。</p>
+            </div>
+        </div>
+
+        <!-- 相关信息区 / FAQ 摘要 -->
+        <div class="faq-mini">
+            <h4>相关信息 · 常见疑问摘要</h4>
+            <div class="faq-item">
+                <strong>如何确认当前页面是官方知识库？</strong>
+                <p>本索引页为独立介绍页面，主站地址仍为 <a href="https://waps-williamhill.com" class="inline-link">威廉希尔</a>。建议通过浏览器直接输入域名访问，避免使用第三方搜索链接。</p>
+            </div>
+            <div class="faq-item">
+                <strong>卡片中的模块是否覆盖所有功能？</strong>
+                <p>仅列举主要分区，完整功能列表以实际站点导航为准。知识库入口旨在提供目录式概览，不替代完整帮助中心。</p>
+            </div>
+            <div class="faq-item">
+                <strong>移动端浏览是否有差异？</strong>
+                <p>站点已适配响应式布局，移动端卡片将自动堆叠。部分交互细节可能因屏幕尺寸有所调整，核心内容一致。</p>
+            </div>
+        </div>
+
+        <!-- 致谢 / 分隔 -->
+        <div class="footer-note">
+            <span>索引页 · 仅供信息参考</span>
+            <span>/</span>
+            <span>内容定期复核</span>
+        </div>
+    </div>
+</body>
+</html>
