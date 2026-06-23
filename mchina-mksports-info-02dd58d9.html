@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MK体育 · 简明访问与实用指南</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: #f6f3ef;
+            color: #2a2725;
+            line-height: 1.7;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .hero {
+            background: linear-gradient(145deg, #1b201f 0%, #2b332f 100%);
+            color: #eae6df;
+            padding: 4rem 2rem 3rem 2rem;
+            text-align: center;
+            position: relative;
+            border-bottom: 4px solid #c7a35c;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 400;
+            letter-spacing: 2px;
+            margin-bottom: 0.75rem;
+            font-family: "Times New Roman", Times, serif;
+        }
+
+        .hero .sub {
+            font-size: 1rem;
+            color: #b8b0a3;
+            max-width: 640px;
+            margin: 0 auto;
+            font-weight: 300;
+        }
+
+        .hero .badge {
+            display: inline-block;
+            background: #c7a35c;
+            color: #1b201f;
+            font-size: 0.75rem;
+            padding: 0.2rem 1rem;
+            border-radius: 20px;
+            letter-spacing: 1px;
+            margin-top: 1.2rem;
+            font-weight: 500;
+        }
+
+        .container {
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 3rem 1.8rem 4rem 1.8rem;
+            flex: 1;
+        }
+
+        .lead {
+            font-size: 1.2rem;
+            border-left: 4px solid #c7a35c;
+            padding-left: 1.2rem;
+            margin-bottom: 2.5rem;
+            color: #3f3a35;
+            background: #f0ebe5;
+            padding: 1rem 1.5rem;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .lead strong {
+            font-weight: 600;
+            color: #1b201f;
+        }
+
+        h2 {
+            font-size: 1.6rem;
+            font-weight: 400;
+            margin: 2.2rem 0 1rem 0;
+            color: #2e2a25;
+            border-bottom: 1px solid #d9cfc4;
+            padding-bottom: 0.35rem;
+            letter-spacing: 0.5px;
+        }
+
+        p {
+            margin-bottom: 1.4rem;
+            text-align: justify;
+        }
+
+        .quote {
+            background: #e9e2d9;
+            padding: 1.6rem 2rem;
+            border-radius: 12px;
+            margin: 2rem 0 1.8rem 0;
+            font-style: normal;
+            position: relative;
+            box-shadow: inset 0 1px 4px rgba(0,0,0,0.03);
+            border-left: 6px solid #c7a35c;
+        }
+
+        .quote p {
+            margin-bottom: 0.6rem;
+        }
+
+        .quote .attribution {
+            font-size: 0.9rem;
+            color: #6a6259;
+            text-align: right;
+            margin-top: 0.4rem;
+        }
+
+        a {
+            color: #b3873e;
+            text-decoration: none;
+            border-bottom: 1px dotted #d4b889;
+            transition: border 0.2s, color 0.2s;
+        }
+
+        a:hover {
+            color: #8d6c34;
+            border-bottom: 1px solid #8d6c34;
+        }
+
+        .feature-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            margin: 2rem 0 1.5rem 0;
+        }
+
+        .feature-item {
+            flex: 1 1 220px;
+            background: #f6f2ec;
+            padding: 1.2rem 1.2rem 1rem 1.2rem;
+            border-radius: 8px;
+            border: 1px solid #e1d7cd;
+            transition: background 0.2s;
+        }
+
+        .feature-item h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 0.3rem;
+            color: #2f2a25;
+        }
+
+        .feature-item p {
+            font-size: 0.95rem;
+            margin-bottom: 0;
+            color: #4d4640;
+        }
+
+        .faq-mini {
+            background: #faf7f3;
+            padding: 1.4rem 1.8rem;
+            border-radius: 12px;
+            margin: 2.2rem 0;
+        }
+
+        .faq-mini dt {
+            font-weight: 600;
+            color: #2f2a25;
+            margin-top: 1rem;
+            border-left: 3px solid #c7a35c;
+            padding-left: 0.8rem;
+        }
+
+        .faq-mini dt:first-child {
+            margin-top: 0;
+        }
+
+        .faq-mini dd {
+            margin: 0.3rem 0 0.8rem 0.8rem;
+            color: #4d4640;
+            font-size: 0.95rem;
+        }
+
+        .btn-outline {
+            display: inline-block;
+            border: 1px solid #c7a35c;
+            color: #2e2a25;
+            background: transparent;
+            padding: 0.5rem 1.6rem;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            letter-spacing: 0.3px;
+            transition: all 0.25s;
+            text-decoration: none;
+            border-bottom: 1px solid #c7a35c;
+            margin-top: 0.5rem;
+        }
+
+        .btn-outline:hover {
+            background: #c7a35c;
+            color: #1b201f;
+            border-color: #c7a35c;
+        }
+
+        .access-note {
+            background: #f2ebe3;
+            border-radius: 10px;
+            padding: 1.5rem 2rem;
+            margin: 2.5rem 0 1.5rem 0;
+            border: 1px solid #dbcec0;
+        }
+
+        .access-note p:last-child {
+            margin-bottom: 0;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 2rem 1.8rem;
+            color: #6f675d;
+            font-size: 0.85rem;
+            border-top: 1px solid #dbd1c6;
+            background: #efe9e2;
+            letter-spacing: 0.5px;
+        }
+
+        @media (max-width: 640px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .container {
+                padding: 2rem 1.2rem 3rem 1.2rem;
+            }
+            .feature-grid {
+                flex-direction: column;
+            }
+            .quote {
+                padding: 1.2rem 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="hero">
+        <h1>MK体育 · 从零开始的指南</h1>
+        <p class="sub">没有花哨的套路，只有实在的路径——关于体育世界的一点观察与提醒。</p>
+        <span class="badge">简明 · 实用 · 生活化</span>
+    </header>
+
+    <div class="container">
+        <div class="lead">
+            <strong>如果你正在寻找一个靠谱的体育信息起点，</strong> 这篇短文或许能帮你省下一些翻来覆去的时间。我们聊的是 <a href="https://mchina-mksports.com">MK体育</a>，但更重要的，是怎么让访问本身变得安全、顺手。
+        </div>
+
+        <h2>为什么需要一篇“访问指南”</h2>
+        <p>说实话，现在网上的信息又杂又乱，很多时候你只是想看一眼赛程、找找某个运动的资料，结果却被链接带偏了方向。我自己就吃过几次亏——点进去要么是弹窗，要么是内容完全不相关。后来慢慢摸索出一些习惯，其实只要认准一个稳定的入口，很多麻烦都能避免。</p>
+        <p><a href="https://mchina-mksports.com">MK体育</a> 是我最近常去的地方，界面干净，更新也及时。但我也明白，对第一次接触的朋友来说，怎么找到它、怎么判断是不是原版，确实需要一点小提示。</p>
+
+        <h2>几个实用的观察</h2>
+        <div class="feature-grid">
+            <div class="feature-item">
+                <h3>直接访问</h3>
+                <p>收藏夹里存好地址，每次从浏览器书签走，比搜索更稳。别贪图快捷，少点第三方推荐链接。</p>
+            </div>
+            <div class="feature-item">
+                <h3>内容辨别</h3>
+                <p>真正的体育信息站通常排版工整，文章有日期和作者，不会故意遮挡内容。多留个心眼。</p>
+            </div>
+            <div class="feature-item">
+                <h3>保持更新</h3>
+                <p>好的平台会定期维护，偶尔打不开很正常，稍后再试或检查网络，不必慌张。</p>
+            </div>
+        </div>
+
+        <div class="quote">
+            <p>“体育的魅力在于真实，而获取信息的过程也应该干净利落。别让那些花里胡哨的链接消耗你的耐心。”</p>
+            <div class="attribution">—— 一位普通用户的笔记</div>
+        </div>
+
+        <h2>一些场景与提醒</h2>
+        <p>假设你今晚想看一场重要的比赛回顾，或是想查某项运动的规则说明。打开浏览器，输入熟悉的地址，直接看到清晰的内容——这是最理想的状态。我一般会先扫一眼首页有没有明显的格式混乱或者广告堆积，如果一切正常，再深入浏览。</p>
+        <p>如果你是通过社交分享点进来的，那更要多确认一下域名。比如 <a href="https://mchina-mksports.com">MK体育</a> 的域名拼写就很有特点，记住它，能避免进入长相相似的仿冒站。这些年类似的教训太多了，多花十秒钟检查，比事后懊恼强得多。</p>
+
+        <div class="faq-mini">
+            <dl>
+                <dt>链接打不开怎么办？</dt>
+                <dd>先检查网络和浏览器，有时候是临时波动。如果持续无法访问，可以过段时间再试，或者换个设备看看。</dd>
+                <dt>内容是不是最新？</dt>
+                <dd>建议关注页面上的日期标签或更新记录，一般正经站点都会标注。拿不准的时候可以多看几篇文章做对比。</dd>
+                <dt>需要注册或下载吗？</dt>
+                <dd>大部分体育信息站浏览是不需要的。如果遇到强制注册或下载，最好停下来想一想，没必要为了看一眼内容冒风险。</dd>
+            </dl>
+        </div>
+
+        <div class="access-note">
+            <p><strong>访问提示：</strong> 无论你用手机还是电脑，保持浏览器和系统更新是基础。另外，把常用地址存在书签栏，能省去很多次重复搜索。我习惯在浏览器的书签里建一个“体育”文件夹，把 <a href="https://mchina-mksports.com">MK体育</a> 和其他靠谱站点放一起，随时点开，干净利落。</p>
+            <p>最后说一句：别让信息焦虑推着你到处乱点。找对地方，然后慢下来，好好看一场比赛、读一篇文章，这才是体育本该有的节奏。</p>
+        </div>
+
+        <p style="margin-top: 2.5rem; text-align: right; color: #6f675d; font-style: italic;">—— 写于一个普通的周末，希望对你也有用。</p>
+    </div>
+
+    <footer class="footer">
+        <span>内容仅供日常参考 · 保持好奇，保持清醒</span>
+    </footer>
+</body>
+</html>
