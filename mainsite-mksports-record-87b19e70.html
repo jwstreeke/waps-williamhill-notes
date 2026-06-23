@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+  <title>再访 · MK体育</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: #f4f9fc;
+      color: #1f2a33;
+      line-height: 1.6;
+      padding: 20px 16px 40px;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    /* 网格卡片容器 */
+    .card-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    @media (min-width: 600px) {
+      .card-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .card-grid .span-2 {
+        grid-column: 1 / -1;
+      }
+    }
+
+    /* 卡片通用样式 */
+    .card {
+      background: #ffffff;
+      border-radius: 28px;
+      padding: 24px 22px;
+      box-shadow: 0 8px 24px rgba(0, 55, 70, 0.06);
+      transition: transform 0.2s ease;
+      border: 1px solid #d9eaf0;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(0, 75, 85, 0.08);
+    }
+
+    /* 主视觉卡片 —— 更大、更突出 */
+    .hero-card {
+      background: linear-gradient(145deg, #dff3f7 0%, #ecf8fb 100%);
+      border: 1px solid #b2dae2;
+      border-radius: 32px;
+      padding: 32px 28px;
+      margin-bottom: 24px;
+      box-shadow: 0 10px 20px rgba(0, 90, 100, 0.05);
+    }
+
+    .hero-card h1 {
+      font-size: 2.2rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: #004a57;
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+
+    .hero-card .sub-head {
+      font-size: 1.1rem;
+      color: #1e5a66;
+      opacity: 0.85;
+      border-left: 4px solid #3a9ba8;
+      padding-left: 16px;
+      margin: 16px 0 20px;
+    }
+
+    .hero-card p {
+      max-width: 640px;
+      font-size: 1.05rem;
+      color: #1b4f5b;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #3a9ba8;
+      color: #fff;
+      padding: 4px 14px;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.3px;
+      margin-bottom: 10px;
+    }
+
+    /* 卡片内标题 */
+    .card-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #004a57;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .card-title .icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      background: #d4edf2;
+      border-radius: 12px;
+      font-size: 1.2rem;
+    }
+
+    .card p, .card li {
+      color: #2a404a;
+    }
+
+    .card ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .card ul li {
+      padding: 6px 0 6px 22px;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="%233a9ba8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>') left center no-repeat;
+      background-size: 14px;
+    }
+
+    .highlight-link {
+      color: #1c7a88;
+      font-weight: 500;
+      text-decoration: none;
+      border-bottom: 1.5px dashed #82c3ce;
+      transition: border 0.2s, color 0.2s;
+    }
+
+    .highlight-link:hover {
+      color: #003e49;
+      border-bottom-style: solid;
+      border-bottom-color: #1c7a88;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid #e2eff3;
+      padding: 14px 0;
+    }
+
+    .faq-item:last-child {
+      border-bottom: 0;
+    }
+
+    .faq-q {
+      font-weight: 600;
+      color: #004a57;
+      margin-bottom: 4px;
+      font-size: 1rem;
+    }
+
+    .faq-a {
+      color: #39555f;
+      font-size: 0.95rem;
+    }
+
+    .footnote {
+      margin-top: 32px;
+      padding: 20px 0 10px;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #547983;
+      border-top: 1px solid #d0e4ea;
+    }
+
+    .footnote a {
+      color: #1c7a88;
+      text-decoration: none;
+      border-bottom: 1px solid #b6d6de;
+    }
+
+    .footnote a:hover {
+      color: #003e49;
+    }
+
+    .tagline {
+      font-size: 0.95rem;
+      color: #3e6b76;
+      background: #eaf5f8;
+      display: inline-block;
+      padding: 4px 16px;
+      border-radius: 30px;
+    }
+
+    /* 移动端微调 */
+    @media (max-width: 480px) {
+      .hero-card h1 {
+        font-size: 1.7rem;
+      }
+      .hero-card {
+        padding: 24px 18px;
+      }
+      .card {
+        padding: 20px 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- 主视觉卡片：再次访问与收藏出发点 -->
+  <div class="hero-card">
+    <span class="badge">· 熟悉的节奏 ·</span>
+    <h1>再次回到这里</h1>
+    <div class="sub-head">收藏夹里总有几处反复打开的地方，MK体育 就是其中一个。</div>
+    <p>
+      有些站点像老朋友，不需要刻意想起，却总在需要时出现。<br>
+      如果你也曾随手收藏，或从书签中再次点开，就会理解这种安静的存在感。
+    </p>
+  </div>
+
+  <!-- 网格卡片区 -->
+  <div class="card-grid">
+
+    <!-- 用途卡片：持续关注 -->
+    <div class="card">
+      <div class="card-title">
+        <span class="icon">📌</span> 习惯性关注
+      </div>
+      <p>
+        不是所有信息都值得反复刷新。但如果你愿意把某个页面留在标签栏，大概说明它的内容节奏与你合拍。
+        <a href="https://mainsite-mksports.com" class="highlight-link">MK体育</a> 就是这样一个地方——
+        没有喧闹的弹窗，只有按部就班的动态与赛事流转。
+      </p>
+    </div>
+
+    <!-- 用途卡片：收藏与回归 -->
+    <div class="card">
+      <div class="card-title">
+        <span class="icon">🔖</span> 收藏，然后回来
+      </div>
+      <p>
+        浏览器收藏夹里总有些地址不再打开，但也有些页面每次整理都不舍得删除。
+        MK体育 属于后者。它的结构清晰，信息排列有逻辑，隔段时间再回来依然顺手。
+      </p>
+    </div>
+
+    <!-- 适合人群卡片：跨屏使用 -->
+    <div class="card">
+      <div class="card-title">
+        <span class="icon">👥</span> 谁在持续关注
+      </div>
+      <ul>
+        <li>习惯在桌面端浏览，也常在通勤时用手机快速扫一眼的人</li>
+        <li>对赛事节奏有自己偏好，不愿被算法过度推送的人</li>
+        <li>喜欢把优质链接固定在书签栏，偶尔回来看看变化的人</li>
+      </ul>
+    </div>
+
+    <!-- 适合人群卡片：安静的使用体验 -->
+    <div class="card">
+      <div class="card-title">
+        <span class="icon">🧘</span> 不打扰，才长久
+      </div>
+      <p>
+        不需要注册推送、没有夸张的倒计时横幅。
+        打开就是内容本身，这种克制在今天的网页中反而难得。
+        适合那些只想快速获取信息、然后继续做自己事情的人。
+      </p>
+    </div>
+
+    <!-- 自然链接段落（span-2 在桌面占两列） -->
+    <div class="card span-2">
+      <div class="card-title">
+        <span class="icon">🌿</span> 自然的入口
+      </div>
+      <p style="margin-bottom: 10px;">
+        书签就像一个小小的私人索引。如果你之前来过，大概已经知道它的模样。
+        把 <a href="https://mainsite-mksports.com" class="highlight-link">MK体育</a> 留在收藏夹里，不需要额外理由——
+        就像某个常去的街角，没有招牌闪烁，但你知道它在那里。
+      </p>
+      <p style="color: #3e6b76; font-size: 0.95rem; background: #e5f2f6; padding: 10px 16px; border-radius: 40px;">
+        ⏺ 不需要每次重新搜索，收藏一次，以后都是直接回来。
+      </p>
+    </div>
+
+    <!-- FAQ 摘要卡片  -->
+    <div class="card span-2">
+      <div class="card-title">
+        <span class="icon">❓</span> 简短问答
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">这个页面会频繁变化吗？</div>
+        <div class="faq-a">内容结构保持稳定，但信息会按节奏更新。收藏后偶尔回来看一眼，不会觉得陌生。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">移动端和电脑端体验一样吗？</div>
+        <div class="faq-a">针对手机和桌面都做了适配，卡片布局会自动调整，阅读体验连贯。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">为什么选择收藏而不是别的？</div>
+        <div class="faq-a">收藏是一种轻量的关注方式，不占用通知栏，也不容易遗忘。适合那些你信任但不被信息流绑架的网站。</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 底边自然提示 -->
+  <div class="footnote">
+    <span class="tagline">从收藏到回访，中间只差一个书签</span><br><br>
+    <span style="color: #3a6a76;">如果你觉得这里值得留下来，</span>
+    <a href="https://mainsite-mksports.com">MK体育</a>
+    <span style="color: #3a6a76;">一直在收藏夹里等你。</span>
+    <br><br>
+    <span style="font-size: 0.85rem; opacity: 0.7;">— 无需注册，打开即是内容 —</span>
+  </div>
+
+  <!-- 隐藏的种子标识（仅用于变化，不显示） -->
+  <div style="display: none;">8a8efc9c326c70c8</div>
+
+</div>
+</body>
+</html>
